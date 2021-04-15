@@ -1,7 +1,10 @@
 package com.example.getorientation;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -9,6 +12,8 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.EventListener;
 
 public class MainActivity extends AppCompatActivity {
     TextView txtAzimuth, txtPitch, txtRoll;
@@ -100,7 +105,22 @@ public class MainActivity extends AppCompatActivity {
     private float radian2Degree(float radian) {
         return radian * 180 / (float)Math.PI;
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sensorManager.unregisterListener(listener);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sensorManager.registerListener(SensorEventListener.);
+
+    }
 }
+
+
 
 
 
