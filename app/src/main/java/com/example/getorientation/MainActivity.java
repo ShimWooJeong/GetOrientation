@@ -115,7 +115,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        sensorManager.registerListener(SensorEventListener.);
+        sensorManager.registerListener(listener, magSensor, SensorManager.SENSOR_DELAY_UI);
+        sensorManager.registerListener(listener, accSensor, SensorManager.SENSOR_DELAY_UI);
 
     }
 }
